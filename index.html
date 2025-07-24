@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Colorwatch</title>
     <style>
@@ -11,18 +11,21 @@
             color: #ffffff;
             padding: 2rem;
         }
+
         label, select, input, textarea {
             display: block;
             margin: 1rem 0;
             width: 100%;
             max-width: 500px;
         }
+
         select, input, textarea {
             padding: 0.5rem;
             font-size: 1rem;
             border-radius: 5px;
             border: none;
         }
+
         button {
             padding: 0.7rem 1.2rem;
             background-color: #5b2c6f;
@@ -32,6 +35,7 @@
             border-radius: 6px;
             cursor: pointer;
         }
+
         textarea {
             height: 60px;
         }
@@ -40,57 +44,69 @@
 <body>
 
 <h1>Generador de Colores para el chat (Overwatch)</h1>
-
-<label for="color">Selecciona un color:</label>
-<input type="color" id="color" value="#5b2c6f" />
-
+<h2>Selecciona un color</h2>
+<label for="color">Color:</label>
+<input type="color" id="color" value="#5b2c6f"/>
+<h2>Selecciona iconos</h2>
 <label for="character">Selecciona un personaje:</label>
 <select id="character">
     <option value="">-- Nada --</option>
-    <option value="<tx0C00000000038C19>">D.Va</option>
-    <option value="<tx0C00000000038C1A>">Doomfist</option>
-    <option value="<tx0C00000000038C1B>">Junker Queen</option>
-    <option value="<tx0C00000000038C1C>">Orisa</option>
-    <option value="<tx0C00000000038C1D>">Ramatra</option>
-    <option value="<tx0C00000000038C1E>">Rein</option>
-    <option value="<tx0C00000000038C25>">Winston</option>
-    <option value="<tx0C00000000038C26>">Wreaking Ball</option>
-    <option value="<tx0C00000000038C27>">Sigma</option>
-    <option value="<tx0C00000000038C28>">Zarya</option>
+    <option value="<tx0C00000000038C3C>">Ana</option>
     <option value="<tx0C00000000038C29>">Ashe</option>
     <option value="<tx0C00000000038C2A>">Bastion</option>
-    <option value="<tx0C00000000038C2B>">Cass</option>
-    <option value="<tx0C00000000038C2C>">Genji</option>
-    <option value="<tx0C00000000038C2D>">Hanzo</option>
-    <option value="<tx0C00000000038C2E>">Junkrat</option>
-    <option value="<tx0C00000000038C2F>">Mei</option>
-    <option value="<tx0C00000000038C30>">Pharah</option>
-    <option value="<tx0C00000000038C31>">Reaper</option>
-    <option value="<tx0C00000000038C33>">Sojourn</option>
-    <option value="<tx0C00000000038C34>">Soldier 76</option>
-    <option value="<tx0C00000000038C35>">Sombra</option>
-    <option value="<tx0C00000000038C36>">Symmetra</option>
-    <option value="<tx0C00000000038C37>">Torbjorn</option>
-    <option value="<tx0C00000000038C38>">Widowmaker</option>
-    <option value="<tx0C00000000038C39>">Mercy</option>
-    <option value="<tx0C00000000038C3A>">Moira</option>
-    <option value="<tx0C00000000038C3B>">Zenyatta</option>
-    <option value="<tx0C00000000038C3C>">Ana</option>
-    <option value="<tx0C00000000038C3D>">Tracer</option>
     <option value="<tx0C00000000038C3E>">Baptiste</option>
     <option value="<tx0C00000000038C3f>">Brigitte</option>
+    <option value="<tx0C00000000038C2B>">Cass</option>
+    <option value="<tx0C00000000038C19>">D.Va</option>
+    <option value="<tx0C00000000038C1A>">Doomfist</option>
+    <option value="<tx0C00000000039FDB>">Echo</option>
+    <option value="<tx0C00000000038C2C>">Genji</option>
+    <option value="<tx0C00000000038C2D>">Hanzo</option>
+    <option value="<tx0C00000000044C5E>">Hazard</option>
+    <option value="<tx0C0000000004447D>">Illari</option>
+    <option value="<tx0C00000000038C1B>">Junker Queen</option>
+    <option value="<tx0C00000000038C2E>">Junkrat</option>
+    <option value="<tx0C00000000045C2E>">Juno</option>
     <option value="<tx0C00000000038C40>">Kiriko</option>
     <option value="<tx0C00000000038C40>">Lucio</option>
-    <option value="<tx0C00000000039FDB>">Echo</option>
     <option value="<tx0C0000000003FF61>">Life Weaver</option>
-    <option value="<tx0C0000000004447D>">Illari</option>
-    <option value="<tx0C00000000044C5E>">Hazard</option>
-    <option value="<tx0C00000000045C2E>">Juno</option>
+    <option value="<tx0C00000000038C1C>">Orisa</option>
+    <option value="<tx0C00000000038C30>">Pharah</option>
+    <option value="<tx0C00000000038C3A>">Moira</option>
+    <option value="<tx0C00000000038C39>">Mercy</option>
+    <option value="<tx0C00000000038C2F>">Mei</option>
+    <option value="<tx0C00000000038C35>">Sombra</option>
+    <option value="<tx0C00000000038C33>">Sojourn</option>
+    <option value="<tx0C00000000038C34>">Soldier 76</option>
+    <option value="<tx0C00000000038C31>">Reaper</option>
+    <option value="<tx0C00000000038C1D>">Ramatra</option>
+    <option value="<tx0C00000000038C1E>">Rein</option>
+    <option value="<tx0C00000000038C36>">Symmetra</option>
+    <option value="<tx0C00000000038C27>">Sigma</option>
+    <option value="<tx0C00000000038C3D>">Tracer</option>
+    <option value="<tx0C00000000038C37>">Torbjorn</option>
     <option value="<tx0C000000000489CF>">Venture</option>
+    <option value="<tx0C00000000038C25>">Winston</option>
+    <option value="<tx0C00000000038C26>">Wreaking Ball</option>
+    <option value="<tx0C00000000038C38>">Widowmaker</option>
+    <option value="<tx0C00000000038C3B>">Zenyatta</option>
+    <option value="<tx0C00000000038C28>">Zarya</option>
 </select>
 
+<label for="random">Selecciona un random:</label>
+<select id="random">
+    <option value="">-- Nada --</option>
+    <option value="<tx0C0000000002C012>"> Pachimari</option>
+    <option value="<tx0C00000000018FD6>"> OW1 Bastion</option>
+    <option value="<tx0C00000000018FDF>"> OW1 Wreaking ball</option>
+    <option value="<tx0C00000000018FD4>"> OW1 Doomfist</option>
+    <option value="<tx0C0000000001EF19>"> Random Omnic</option>
+    <option value="<tx0C00000000062AD8>"> Stadium damage banner</option>
+</select>
+
+<h2>Mensaje a mostrar</h2>
 <label for="message">Mensaje a mostrar:</label>
-<input type="text" id="message" placeholder="Escribe tu mensaje (ej. gg)" />
+<input type="text" id="message" placeholder="Escribe tu mensaje (ej. gg)"/>
 
 <button onclick="generateCode()">Generar código</button>
 
@@ -103,6 +119,7 @@
 <script>
     function generateCode() {
         const character = document.getElementById('character').value;
+        const random = document.getElementById('random').value;
         const color = document.getElementById('color').value.replace('#', '').toUpperCase();
         const message = document.getElementById('message').value.trim();
 
@@ -112,7 +129,7 @@
         }
 
         const owColor = `<FG${color}FF>`;
-        let coloredMessage = `${character}${owColor}${message}`;
+        let coloredMessage = `${random}${character}${owColor}${message}`;
         document.getElementById('output').value = coloredMessage;
         navigator.clipboard.writeText(coloredMessage)
             .then(() => {
