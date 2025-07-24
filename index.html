@@ -50,6 +50,7 @@
 <h2>Selecciona iconos</h2>
 <label for="character">Selecciona un personaje:</label>
 <select id="character">
+
     <option value="">-- Nada --</option>
     <option value="<tx0C00000000038C3C>">Ana</option>
     <option value="<tx0C00000000038C29>">Ashe</option>
@@ -59,19 +60,28 @@
     <option value="<tx0C00000000038C2B>">Cass</option>
     <option value="<tx0C00000000038C19>">D.Va</option>
     <option value="<tx0C00000000038C1A>">Doomfist</option>
+    <option value="<tx0C00000000040CE0>"> Doomfist (Alien)</option>
     <option value="<tx0C00000000039FDB>">Echo</option>
     <option value="<tx0C00000000038C2C>">Genji</option>
+    <option value="<tx0C00000000043ECB>"> Genji 2</option>
     <option value="<tx0C00000000038C2D>">Hanzo</option>
     <option value="<tx0C00000000044C5E>">Hazard</option>
+    <option value="<tx0C00000000044C60>"> Hazard 2</option>
     <option value="<tx0C0000000004447D>">Illari</option>
+    <option value="<tx0C00000000043E3D>"> Illari</option>
     <option value="<tx0C00000000038C1B>">Junker Queen</option>
     <option value="<tx0C00000000038C2E>">Junkrat</option>
+    <option value="<tx0C000000000466AB>"> Junkrat (le sserafim) 2</option>
     <option value="<tx0C00000000045C2E>">Juno</option>
+    <option value="<tx0C00000000045C28>"> Juno 2</option>
     <option value="<tx0C00000000038C40>">Kiriko</option>
     <option value="<tx0C00000000038C40>">Lucio</option>
     <option value="<tx0C0000000003FF61>">Life Weaver</option>
+    <option value="<tx0C000000000402CE>"> Life Weaver 2</option>
     <option value="<tx0C00000000038C1C>">Orisa</option>
     <option value="<tx0C00000000038C30>">Pharah</option>
+    <option value="<tx0C000000000455B7>"> Pharah (Hood) 2</option>
+    <option value="<tx0C00000000045B47>">Mauga</option>
     <option value="<tx0C00000000038C3A>">Moira</option>
     <option value="<tx0C00000000038C39>">Mercy</option>
     <option value="<tx0C00000000038C2F>">Mei</option>
@@ -81,21 +91,27 @@
     <option value="<tx0C00000000038C31>">Reaper</option>
     <option value="<tx0C00000000038C1D>">Ramatra</option>
     <option value="<tx0C00000000038C1E>">Rein</option>
+    <option value="<tx0C00000000043EC5>"> Rein 2</option>
     <option value="<tx0C00000000038C36>">Symmetra</option>
     <option value="<tx0C00000000038C27>">Sigma</option>
+    <option value="<tx0C00000000040CE1>"> Sigma (Mythic)</option>
+    <option value="<tx0C00000000043ED0>"> Sojourn</option>
     <option value="<tx0C00000000038C3D>">Tracer</option>
     <option value="<tx0C00000000038C37>">Torbjorn</option>
     <option value="<tx0C000000000489CF>">Venture</option>
+    <option value="<tx0C000000000489CE>"> Venture 2</option>
     <option value="<tx0C00000000038C25>">Winston</option>
+    <option value="<tx0C00000000043EC9>"> Winston 2</option>
     <option value="<tx0C00000000038C26>">Wreaking Ball</option>
     <option value="<tx0C00000000038C38>">Widowmaker</option>
     <option value="<tx0C00000000038C3B>">Zenyatta</option>
     <option value="<tx0C00000000038C28>">Zarya</option>
 </select>
 
-<label for="random">Selecciona un random:</label>
-<select id="random">
+<label for="otros">Otros iconos:</label>
+<select id="otros">
     <option value="">-- Nada --</option>
+    <option value="<tx0C00000000017112>"> ♥ </option>
     <option value="<tx0C0000000002C012>"> Pachimari</option>
     <option value="<tx0C00000000018FD6>"> OW1 Bastion</option>
     <option value="<tx0C00000000018FDF>"> OW1 Wreaking ball</option>
@@ -119,17 +135,17 @@
 <script>
     function generateCode() {
         const character = document.getElementById('character').value;
-        const random = document.getElementById('random').value;
+        const otros = document.getElementById('otros').value;
         const color = document.getElementById('color').value.replace('#', '').toUpperCase();
         const message = document.getElementById('message').value.trim();
 
-        if (!message) {
+        if (!message && !otros && !character) {
             alert('Por favor, escribe un mensaje.');
             return;
         }
 
         const owColor = `<FG${color}FF>`;
-        let coloredMessage = `${random}${character}${owColor}${message}`;
+        let coloredMessage = `${otros}${character}${owColor}${message}`;
         document.getElementById('output').value = coloredMessage;
         navigator.clipboard.writeText(coloredMessage)
             .then(() => {
