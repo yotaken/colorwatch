@@ -96,6 +96,9 @@
 
 <label for="output">Código generado:</label>
 <textarea id="output" readonly></textarea>
+<div id="copyMsg" style="color: lightgreen; display: none; margin-top: 0.5rem;">
+    ¡Código copiado al portapapeles!
+</div>
 
 <script>
     function generateCode() {
@@ -109,7 +112,17 @@
         }
 
         const owColor = `<FG${color}FF>`;
-        document.getElementById('output').value = `${character}${owColor}${message}`;
+        let coloredMessage = `${character}${owColor}${message}`;
+        document.getElementById('output').value = coloredMessage;
+        navigator.clipboard.writeText(coloredMessage)
+            .then(() => {
+                const msg = document.getElementById('copyMsg');
+                msg.style.display = 'block';
+                setTimeout(() => {
+                    msg.style.display = 'none';
+                }, 3000);
+            })
+            .catch(err => console.error('Error al copiar:', err));
     }
 </script>
 
