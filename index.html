@@ -39,115 +39,215 @@
         textarea {
             height: 60px;
         }
+
+        input[type="color"] {
+            min-height: 60px;
+        }
+
+        #preview {
+            margin-top: 1rem;
+            font-family: monospace;
+            padding: 0.5rem;
+            background: #2e2e3f;
+            border-radius: 5px;
+            white-space: pre-wrap;
+        }
+
+        #container {
+            display: flex;
+            justify-content: space-around;
+        }
     </style>
 </head>
 <body>
 
 <h1>Generador de Colores para el chat (Overwatch)</h1>
-<h2>Selecciona un color</h2>
-<label for="color">Color:</label>
-<input type="color" id="color" value="#5b2c6f"/>
-<h2>Selecciona iconos</h2>
-<label for="character">Selecciona un personaje:</label>
-<select id="character">
+<div id="container">
+    <div class="left">
+        <!-- Colores de gradiente -->
+        <div id="gradientControls">
+            <label for="startColor">Color inicial:</label>
+            <input type="color" id="startColor" value="#ff0000"/>
+            <label for="endColor">Color final:</label>
+            <input type="color" id="endColor" value="#000000"/>
+            <p style="font-size: 0.9rem;">* Máximo 16 caracteres en gradiente</p>
+        </div>
 
-    <option value="">-- Nada --</option>
-    <option value="<tx0C00000000038C3C>">Ana</option>
-    <option value="<tx0C00000000038C29>">Ashe</option>
-    <option value="<tx0C00000000038C2A>">Bastion</option>
-    <option value="<tx0C00000000038C3E>">Baptiste</option>
-    <option value="<tx0C00000000038C3f>">Brigitte</option>
-    <option value="<tx0C00000000038C2B>">Cass</option>
-    <option value="<tx0C00000000038C19>">D.Va</option>
-    <option value="<tx0C00000000038C1A>">Doomfist</option>
-    <option value="<tx0C00000000040CE0>"> Doomfist (Alien)</option>
-    <option value="<tx0C00000000039FDB>">Echo</option>
-    <option value="<tx0C00000000038C2C>">Genji</option>
-    <option value="<tx0C00000000043ECB>"> Genji 2</option>
-    <option value="<tx0C00000000038C2D>">Hanzo</option>
-    <option value="<tx0C00000000044C5E>">Hazard</option>
-    <option value="<tx0C00000000044C60>"> Hazard 2</option>
-    <option value="<tx0C0000000004447D>">Illari</option>
-    <option value="<tx0C00000000043E3D>"> Illari</option>
-    <option value="<tx0C00000000038C1B>">Junker Queen</option>
-    <option value="<tx0C00000000038C2E>">Junkrat</option>
-    <option value="<tx0C000000000466AB>"> Junkrat (le sserafim) 2</option>
-    <option value="<tx0C00000000045C2E>">Juno</option>
-    <option value="<tx0C00000000045C28>"> Juno 2</option>
-    <option value="<tx0C00000000038C40>">Kiriko</option>
-    <option value="<tx0C00000000038C40>">Lucio</option>
-    <option value="<tx0C0000000003FF61>">Life Weaver</option>
-    <option value="<tx0C000000000402CE>"> Life Weaver 2</option>
-    <option value="<tx0C00000000038C1C>">Orisa</option>
-    <option value="<tx0C00000000038C30>">Pharah</option>
-    <option value="<tx0C000000000455B7>"> Pharah (Hood) 2</option>
-    <option value="<tx0C00000000045B47>">Mauga</option>
-    <option value="<tx0C00000000038C3A>">Moira</option>
-    <option value="<tx0C00000000038C39>">Mercy</option>
-    <option value="<tx0C00000000038C2F>">Mei</option>
-    <option value="<tx0C00000000038C35>">Sombra</option>
-    <option value="<tx0C00000000038C33>">Sojourn</option>
-    <option value="<tx0C00000000038C34>">Soldier 76</option>
-    <option value="<tx0C00000000038C31>">Reaper</option>
-    <option value="<tx0C00000000038C1D>">Ramatra</option>
-    <option value="<tx0C00000000038C1E>">Rein</option>
-    <option value="<tx0C00000000043EC5>"> Rein 2</option>
-    <option value="<tx0C00000000038C36>">Symmetra</option>
-    <option value="<tx0C00000000038C27>">Sigma</option>
-    <option value="<tx0C00000000040CE1>"> Sigma (Mythic)</option>
-    <option value="<tx0C00000000043ED0>"> Sojourn</option>
-    <option value="<tx0C00000000038C3D>">Tracer</option>
-    <option value="<tx0C00000000038C37>">Torbjorn</option>
-    <option value="<tx0C000000000489CF>">Venture</option>
-    <option value="<tx0C000000000489CE>"> Venture 2</option>
-    <option value="<tx0C00000000038C25>">Winston</option>
-    <option value="<tx0C00000000043EC9>"> Winston 2</option>
-    <option value="<tx0C00000000038C26>">Wreaking Ball</option>
-    <option value="<tx0C00000000038C38>">Widowmaker</option>
-    <option value="<tx0C00000000038C3B>">Zenyatta</option>
-    <option value="<tx0C00000000038C28>">Zarya</option>
-</select>
+        <!-- Iconos -->
+        <h2>Selecciona iconos</h2>
+        <label for="character">Selecciona un personaje:</label>
+        <select id="character">
+            <option value="">-- Nada --</option>
+            <option value="<tx0C00000000038C3C>">Ana</option>
+            <option value="<tx0C00000000038C29>">Ashe</option>
+            <option value="<tx0C00000000038C2A>">Bastion</option>
+            <option value="<tx0C00000000038C3E>">Baptiste</option>
+            <option value="<tx0C00000000038C3f>">Brigitte</option>
+            <option value="<tx0C00000000038C2B>">Cass</option>
+            <option value="<tx0C00000000038C19>">D.Va</option>
+            <option value="<tx0C00000000038C1A>">Doomfist</option>
+            <option value="<tx0C00000000040CE0>"> Doomfist (Alien)</option>
+            <option value="<tx0C00000000039FDB>">Echo</option>
+            <option value="<tx0C00000000038C2C>">Genji</option>
+            <option value="<tx0C00000000043ECB>"> Genji 2</option>
+            <option value="<tx0C00000000038C2D>">Hanzo</option>
+            <option value="<tx0C00000000044C5E>">Hazard</option>
+            <option value="<tx0C00000000044C60>"> Hazard 2</option>
+            <option value="<tx0C0000000004447D>">Illari</option>
+            <option value="<tx0C00000000043E3D>"> Illari</option>
+            <option value="<tx0C00000000038C1B>">Junker Queen</option>
+            <option value="<tx0C00000000038C2E>">Junkrat</option>
+            <option value="<tx0C000000000466AB>"> Junkrat (le sserafim) 2</option>
+            <option value="<tx0C00000000045C2E>">Juno</option>
+            <option value="<tx0C00000000045C28>"> Juno 2</option>
+            <option value="<tx0C00000000038C40>">Kiriko</option>
+            <option value="<tx0C00000000038C40>">Lucio</option>
+            <option value="<tx0C0000000003FF61>">Life Weaver</option>
+            <option value="<tx0C000000000402CE>"> Life Weaver 2</option>
+            <option value="<tx0C00000000038C1C>">Orisa</option>
+            <option value="<tx0C00000000038C30>">Pharah</option>
+            <option value="<tx0C000000000455B7>"> Pharah (Hood) 2</option>
+            <option value="<tx0C00000000045B47>">Mauga</option>
+            <option value="<tx0C00000000038C3A>">Moira</option>
+            <option value="<tx0C00000000038C39>">Mercy</option>
+            <option value="<tx0C00000000038C2F>">Mei</option>
+            <option value="<tx0C00000000038C35>">Sombra</option>
+            <option value="<tx0C00000000038C33>">Sojourn</option>
+            <option value="<tx0C00000000038C34>">Soldier 76</option>
+            <option value="<tx0C00000000038C31>">Reaper</option>
+            <option value="<tx0C00000000038C1D>">Ramatra</option>
+            <option value="<tx0C00000000038C1E>">Rein</option>
+            <option value="<tx0C00000000043EC5>"> Rein 2</option>
+            <option value="<tx0C00000000038C36>">Symmetra</option>
+            <option value="<tx0C00000000038C27>">Sigma</option>
+            <option value="<tx0C00000000040CE1>"> Sigma (Mythic)</option>
+            <option value="<tx0C00000000043ED0>"> Sojourn</option>
+            <option value="<tx0C00000000038C3D>">Tracer</option>
+            <option value="<tx0C00000000038C37>">Torbjorn</option>
+            <option value="<tx0C000000000489CF>">Venture</option>
+            <option value="<tx0C000000000489CE>"> Venture 2</option>
+            <option value="<tx0C00000000038C25>">Winston</option>
+            <option value="<tx0C00000000043EC9>"> Winston 2</option>
+            <option value="<tx0C00000000038C26>">Wreaking Ball</option>
+            <option value="<tx0C00000000038C38>">Widowmaker</option>
+            <option value="<tx0C00000000038C3B>">Zenyatta</option>
+            <option value="<tx0C00000000038C28>">Zarya</option>
+        </select>
 
-<label for="otros">Otros iconos:</label>
-<select id="otros">
-    <option value="">-- Nada --</option>
-    <option value="<tx0C00000000017112>"> ♥ </option>
-    <option value="<tx0C0000000002C012>"> Pachimari</option>
-    <option value="<tx0C00000000018FD6>"> OW1 Bastion</option>
-    <option value="<tx0C00000000018FDF>"> OW1 Wreaking ball</option>
-    <option value="<tx0C00000000018FD4>"> OW1 Doomfist</option>
-    <option value="<tx0C0000000001EF19>"> Random Omnic</option>
-    <option value="<tx0C00000000062AD8>"> Stadium damage banner</option>
-</select>
+        <label for="otros">Otros iconos:</label>
+        <select id="otros">
+            <option value="">-- Nada --</option>
+            <option value="<tx0C00000000017112>"> ♥</option>
+            <option value="<tx0C0000000002C012>"> Pachimari</option>
+            <option value="<tx0C00000000018FD6>"> OW1 Bastion</option>
+            <option value="<tx0C00000000018FDF>"> OW1 Wreaking ball</option>
+            <option value="<tx0C00000000018FD4>"> OW1 Doomfist</option>
+            <option value="<tx0C0000000001EF19>"> Random Omnic</option>
+            <option value="<tx0C00000000062AD8>"> Stadium damage banner</option>
+            <option value="<tx0C00000000007B56>"> Niño la droga</option>
+        </select>
 
-<h2>Mensaje a mostrar</h2>
-<label for="message">Mensaje a mostrar:</label>
-<input type="text" id="message" placeholder="Escribe tu mensaje (ej. gg)"/>
+        <label for="doomicons">Doomfist</label>
+        <select id="doomicons">
+            <option value="">-- Nada --</option>
+            <option value="<tx0C0000000000F445>"> SLAM</option>
+            <option value="<tx0C0000000000F446>"> Rocket Punch</option>
+            <option value="<tx0C0000000000F447>"> Puño</option>
+            <option value="<tx0C0000000000F448>"> Meteor</option>
+            <option value="<tx0C0000000000F4D5>"> Icon doom</option>
+            <option value="<tx0C00000000018FD4>"> Icon doom viejo (editado)</option>
+            <option value="<tx0C00000000038495>"> Doom</option>
 
-<button onclick="generateCode()">Generar código</button>
+        </select>
 
-<label for="output">Código generado:</label>
-<textarea id="output" readonly></textarea>
-<div id="copyMsg" style="color: lightgreen; display: none; margin-top: 0.5rem;">
-    ¡Código copiado al portapapeles!
+        <!-- Mensaje -->
+        <h2>Mensaje a mostrar</h2>
+        <label for="message">Mensaje:</label>
+        <input type="text" id="message" maxlength="16" placeholder="Escribe tu mensaje (ej. gg)"
+               oninput="updatePreview()"/>
+        <!-- Botón -->
+        <button onclick="generateCode()">Generar código</button>
+    </div>
+
+    <div id="preview-container">
+        <div id="copyMsg" style="color: lightgreen; display: none; margin-top: 0.5rem;">
+            ¡Código copiado al portapapeles!
+        </div>
+        <h2>Vista previa</h2>
+        <div id="preview">(sin mensaje aún)</div>
+    </div>
 </div>
 
 <script>
-    function generateCode() {
+    function hexToRgb(hex) {
+        hex = hex.replace('#', '');
+        const bigint = parseInt(hex, 16);
+        return [(bigint >> 16) & 255, (bigint >> 8) & 255, bigint & 255];
+    }
+
+    function rgbToHex(r, g, b) {
+        return ((1 << 24) + (r << 16) + (g << 8) + b)
+            .toString(16)
+            .slice(1)
+            .toUpperCase();
+    }
+
+    function generateGradientColors(start, end, steps) {
+        const startRGB = hexToRgb(start);
+        const endRGB = hexToRgb(end);
+        const gradient = [];
+
+        for (let i = 0; i < steps; i++) {
+            const ratio = i / Math.max(steps - 1, 1);
+            const r = Math.round(startRGB[0] + ratio * (endRGB[0] - startRGB[0]));
+            const g = Math.round(startRGB[1] + ratio * (endRGB[1] - startRGB[1]));
+            const b = Math.round(startRGB[2] + ratio * (endRGB[2] - startRGB[2]));
+            gradient.push(rgbToHex(r, g, b));
+        }
+
+        return gradient;
+    }
+
+    function updatePreview() {
+        const message = document.getElementById('message').value;
+        const mode = document.getElementById('mode').value;
         const character = document.getElementById('character').value;
         const otros = document.getElementById('otros').value;
-        const color = document.getElementById('color').value.replace('#', '').toUpperCase();
-        const message = document.getElementById('message').value.trim();
+        const doomicons = document.getElementById('doomicons').value;
 
-        if (!message && !otros && !character) {
-            alert('Por favor, escribe un mensaje.');
+        const iconLength = getCharLength(character + otros + doomicons);
+        const previewBox = document.getElementById('preview');
+
+        if (!message && !character && !otros && !doomicons) {
+            previewBox.innerHTML = '(sin mensaje aún)';
             return;
         }
 
-        const owColor = `<FG${color}FF>`;
-        let coloredMessage = `${otros}${character}${owColor}${message}`;
-        document.getElementById('output').value = coloredMessage;
-        navigator.clipboard.writeText(coloredMessage)
+        let trimmedMsg = message;
+        if (mode === 'gradient') {
+            const allowed = 16 - iconLength;
+            trimmedMsg = message.slice(0, Math.max(0, allowed));
+        }
+
+        let previewHTML = '';
+
+        previewHTML += escapeIcons(otros + character + doomicons);
+
+        const start = document.getElementById('startColor').value;
+        const end = document.getElementById('endColor').value;
+        let msg = trimmedMsg;
+        const colors = generateGradientColors(start, end, msg.length);
+
+        for (let i = 0; i < msg.length; i++) {
+            const char = escapeHTML(msg[i]);
+            previewHTML += `<span style="color:#${colors[i]}">${char}</span>`;
+        }
+
+        previewBox.innerHTML = previewHTML;
+    }
+
+    function createCodeOnPasteBin(finalCode) {
+        navigator.clipboard.writeText(finalCode)
             .then(() => {
                 const msg = document.getElementById('copyMsg');
                 msg.style.display = 'block';
@@ -157,6 +257,68 @@
             })
             .catch(err => console.error('Error al copiar:', err));
     }
+
+    function generateCode() {
+        const character = document.getElementById('character').value;
+        const otros = document.getElementById('otros').value;
+        const doomicons = document.getElementById('doomicons').value;
+        const rawMessage = document.getElementById('message').value.trim();
+        const previewBox = document.getElementById('preview');
+
+        if (!rawMessage && !character && !otros && !doomicons) {
+            alert('Por favor, escribe un mensaje.');
+            return;
+        }
+
+        const iconLength = getCharLength(character + otros + doomicons);
+        let allowedMsgLength = 16 - iconLength;
+
+        if (allowedMsgLength < 0) {
+            alert("Has usado demasiados iconos. El total (iconos + mensaje) no puede superar 16 caracteres.");
+            return;
+        }
+
+        const message = rawMessage.slice(0, allowedMsgLength);
+        let previewHTML = escapeIcons(otros + character + doomicons);
+
+
+        const start = document.getElementById('startColor').value;
+        const end = document.getElementById('endColor').value;
+
+        const colors = generateGradientColors(start, end, message.length);
+
+        let gradientCode = '';
+        for (let i = 0; i < message.length; i++) {
+            const hex = colors[i];
+            const char = message[i];
+            gradientCode += `<FG${hex}FF>${char}`;
+            previewHTML += `<span style="color:#${hex}">${escapeHTML(char)}</span>`;
+        }
+
+        previewBox.innerHTML = previewHTML;
+        createCodeOnPasteBin(`${otros}${character}${doomicons} ${gradientCode}`);
+    }
+
+
+    function getCharLength(str) {
+        return str.replace(/<[^>]*>/g, '').length;
+    }
+
+    function escapeHTML(text) {
+        const map = {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#039;',
+        };
+        return text.replace(/[&<>"']/g, m => map[m]);
+    }
+
+    function escapeIcons(str) {
+        return str.replace(/<tx[^>]*>/g, '[🔸]');
+    }
+
 </script>
 
 </body>
